@@ -9,11 +9,18 @@ import java.util.Scanner;
  *
  * Responsible for:
  * - creating the Library object that stores all the books
- * - displaying a menu screen with different options
  *
  */
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Admin admin = new Admin();
+    }
+}
+
+/*public class Main {
     public static int STATE;
     public static final int END_STATE = 0;
     public static final int MENU_STATE = 1;
@@ -83,4 +90,4 @@ public class Main {
         scanner.nextLine();
         return choice;
     }
-}
+}*/
