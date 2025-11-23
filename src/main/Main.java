@@ -1,6 +1,17 @@
 package main;
 
+import helper.Helper;
+
 import java.util.Scanner;
+
+/**
+ * Entry point into my app
+ *
+ * Responsible for:
+ * - creating the Library object that stores all the books
+ * - displaying a menu screen with different options
+ *
+ */
 
 public class Main {
     public static int STATE;
@@ -8,6 +19,7 @@ public class Main {
     public static final int MENU_STATE = 1;
 
     static Scanner scanner = new Scanner(System.in);
+    static helper.Helper h = new Helper();
 
     static int menuItem;
 
@@ -35,23 +47,23 @@ public class Main {
             case 5: break;
             case 6: break;
             case 7:
-                delayTime(750);
+                h.delayTime(750);
                 System.out.println("\n\nProcessing request...");
-                delayTime(750);
+                h.delayTime(750);
                 System.out.println("\n\nExiting program...");
-                delayTime(750);
+                h.delayTime(750);
                 STATE = END_STATE;
                 break;
             default:
-                delayTime(750);
+                h.delayTime(750);
                 System.out.println("\n\nInvalid input, please try again.");
-                delayTime(750);
+                h.delayTime(750);
                 break;
         }
     }
     
     private static int displayMenu() {
-        delayTime(750);
+        h.delayTime(750);
         System.out.println("\n\n");
         System.out.println("""
                 ### Menu ###
@@ -70,14 +82,5 @@ public class Main {
         int choice = scanner.nextInt();
         scanner.nextLine();
         return choice;
-    }
-
-    public static void delayTime(int delay) {
-        try {
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 }
