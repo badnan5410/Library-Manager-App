@@ -8,6 +8,7 @@ import java.util.Scanner;
  * Entry point into my app
  *
  * Responsible for:
+ * - creating the Admin object
  * - creating the Library object that stores all the books
  *
  */

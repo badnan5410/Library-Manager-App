@@ -5,6 +5,10 @@ import helper.Helper;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Instantiates an Admin object, either new or existing.
+ */
+
 public class Admin {
     static String adminName;
     static int adminID;
@@ -90,7 +94,7 @@ public class Admin {
             System.out.print("\n\nPlease create a password (make sure it is greater than 7 characters and it includes numbers and special characters): ");
             adminPassword = scanner.nextLine();
             Helper.delayTime(800);
-        } while (adminPassword.length() < 8 || !adminPassword.matches(".*\\d.*") || !adminPassword.matches(".*[^a-zA-Z0-9].*"));
+        } while (adminPassword.length() < 8 || !adminPassword.matches(".*\\d.*") || !adminPassword.matches(".*[^a-zA-Z0-9].*") || !adminPassword.matches(".*[A-Z].*"));
 
         Helper.delayTime(800);
         return adminPassword;
