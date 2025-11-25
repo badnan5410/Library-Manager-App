@@ -10,15 +10,16 @@ import java.util.Scanner;
  */
 
 public class Admin {
-    static String adminName;
-    static int adminID;
+    String adminName;
+    int adminID;
     String adminType;
-    static String adminEmail;
-    static String adminPassword;
+    String adminEmail;
+    String adminPassword;
 
-    static Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
 
-    public Admin() {
+    public Admin(Scanner scanner) {
+        this.scanner = scanner;
 
         do {
             Helper.delayTime();
@@ -35,7 +36,7 @@ public class Admin {
         }
     }
 
-    private static void setupNewAdmin() {
+    private void setupNewAdmin() {
         Helper.delayTime();
         adminName = getAdminName();
         Helper.delayTime();
@@ -55,12 +56,14 @@ public class Admin {
         System.out.printf("\n\nHere is your unique admin ID [%d].", adminID);
     }
 
-    private static String getAdminName() {
+    private void setupOldAdmin() {}
+
+    private String getAdminName() {
         String adminName;
 
         do {
             System.out.print("\n\nPlease enter your first name: ");
-            adminName = scanner.nextLine();
+            adminName = scanner.nextLine().trim();
             Helper.delayTime(800);
         } while (adminName.length() < 3);
 
@@ -68,18 +71,18 @@ public class Admin {
         return adminName;
     }
 
-    private static int getAdminId() {
+    private int getAdminId() {
         Random rand = new Random();
 
         return 10000000 + rand.nextInt(90000000);
     }
 
-    private static String getAdminEmail() {
+    private String getAdminEmail() {
         String adminEmail;
 
         do {
             System.out.print("\n\nPlease enter a valid email address: ");
-            adminEmail = scanner.nextLine();
+            adminEmail = scanner.nextLine().trim();
             Helper.delayTime(800);
         } while (!adminEmail.contains("@") || !adminEmail.contains(".") || adminEmail.startsWith("@") || adminEmail.endsWith("@"));
 
@@ -87,17 +90,16 @@ public class Admin {
         return adminEmail;
     }
 
-    private static String getAdminPassword() {
+    private String getAdminPassword() {
         String adminPassword;
 
         do {
             System.out.print("\n\nPlease create a password (make sure it is greater than 7 characters and it includes numbers and special characters): ");
-            adminPassword = scanner.nextLine();
+            adminPassword = scanner.nextLine().trim();
             Helper.delayTime(800);
         } while (adminPassword.length() < 8 || !adminPassword.matches(".*\\d.*") || !adminPassword.matches(".*[^a-zA-Z0-9].*") || !adminPassword.matches(".*[A-Z].*"));
 
         Helper.delayTime(800);
         return adminPassword;
     }
-
 }

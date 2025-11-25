@@ -1,7 +1,6 @@
 package main;
 
 import helper.Helper;
-
 import java.util.Scanner;
 
 /**
@@ -14,10 +13,12 @@ import java.util.Scanner;
  */
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Admin admin = new Admin();
+        Scanner scanner = new Scanner(System.in);
+        Admin admin = new Admin(scanner);
+
+        scanner.close();
     }
 }
 
