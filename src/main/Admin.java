@@ -98,4 +98,8 @@ public class Admin {
         Helper.delayTime(800);
         return adminPassword;
     }
+
+    public int getAdminID() {
+        return adminID;
+    }
 }

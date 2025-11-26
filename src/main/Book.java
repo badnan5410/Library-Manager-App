@@ -6,9 +6,7 @@ public class Book {
     int id;
     String title;
     String author;
-    List<String> genre;
+    String genre;
     int quantity;
     int totalQuantity;
-
-    public Book() {}
 }
