@@ -37,13 +37,9 @@ public class Admin {
     }
 
     private void setupNewAdmin() {
-        Helper.delayTime();
         adminName = getAdminName();
-        Helper.delayTime();
         adminEmail = getAdminEmail();
-        Helper.delayTime();
         adminPassword = getAdminPassword();
-        Helper.delayTime();
         adminID = getAdminId();
 
         Helper.delayTime();
