@@ -43,6 +43,32 @@ public class Library {
         }
     }
 
+    public void listAllBooks() {
 
+        if (!books.isEmpty()) {
+            for (Book b: books) {
+                System.out.printf("| ID: %d | Title: %s by %s | Genre(s): %s | Quantity:  %d/%d |", b.getId(), b.getTitle(), b.getAuthor(), formatGenre(b.getGenre()), b.getQuantity(), b.getTotalQuantity());
+                System.out.println();
+            }
 
+        } else {
+            System.out.println("\n\nlibrary is empty...\n\n");
+        }
+    }
+
+    private String formatGenre(List<String> genres) {
+
+        if (genres == null || genres.isEmpty()) {
+            return "";
+        }
+
+        String formattedGenre = "";
+
+        for (String genre: genres) {
+            formattedGenre += genre + ", ";
+        }
+
+        formattedGenre = formattedGenre.substring(0, formattedGenre.length() - 2);
+        return formattedGenre;
+    }
 }

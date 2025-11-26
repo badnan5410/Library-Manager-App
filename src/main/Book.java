@@ -25,6 +25,8 @@ public class Book {
 
     public String getAuthor() {return author;}
 
+    public List<String> getGenre() {return genre;}
+
     public int getQuantity() {return quantity;}
 
     public int getTotalQuantity() {return totalQuantity;}
