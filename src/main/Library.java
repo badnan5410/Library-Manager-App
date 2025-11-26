@@ -13,15 +13,36 @@ public class Library {
         this.adminId = adminId;
     }
 
-    public Book searchBook(String title, String author) {
+    public Book getBook(String title, String author) {
 
         for (Book target: books) {
-            if (title.equals(target.title) && author.equals(target.author)) {
+            if (title.equals(target.getTitle()) && author.equals(target.getAuthor())) {
                 return target;
             }
         }
 
         return null;
     }
+
+    public boolean checkBookExists(String title, String author) {
+        return getBook(title, author) != null;
+    }
+
+    public void addBook(String title, String author, List<String> genre) {
+
+        if (checkBookExists(title, author)) {
+            Book b = getBook(title, author);
+            int quantity = b.getQuantity();
+            int totalQuantity = b.getTotalQuantity();
+            quantity++;
+            totalQuantity++;
+
+        } else {
+            books.add(new Book(nextBookId, title, author, genre));
+            nextBookId++;
+        }
+    }
+
+
 
 }
