@@ -32,10 +32,7 @@ public class Library {
 
         if (checkBookExists(title, author)) {
             Book b = getBook(title, author);
-            int quantity = b.getQuantity();
-            int totalQuantity = b.getTotalQuantity();
-            quantity++;
-            totalQuantity++;
+            b.increaseQuantity();
 
         } else {
             books.add(new Book(nextBookId, title, author, genre));

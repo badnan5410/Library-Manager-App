@@ -10,11 +10,11 @@ import java.util.Scanner;
  */
 
 public class Admin {
-    String adminName;
-    int adminID;
-    String adminType;
-    String adminEmail;
-    String adminPassword;
+    private String name;
+    private int id;
+    private String userType;
+    private String email;
+    private String password;
 
     private Scanner scanner;
 
@@ -24,11 +24,11 @@ public class Admin {
         do {
             Helper.delayTime();
             System.out.print("\n\nAre you a new user or existing user? Press (1) for new or (2) for existing: ");
-            adminType = scanner.nextLine().trim();
+            userType = scanner.nextLine().trim();
 
-        } while (!adminType.equals("1") && !adminType.equals("2"));
+        } while (!userType.equals("1") && !userType.equals("2"));
 
-        if (adminType.equals("1")) {
+        if (userType.equals("1")) {
             setupNewAdmin();
 
         } else {
@@ -37,24 +37,24 @@ public class Admin {
     }
 
     private void setupNewAdmin() {
-        adminName = getAdminName();
-        adminEmail = getAdminEmail();
-        adminPassword = getAdminPassword();
-        adminID = getAdminId();
+        name = getName();
+        email = getEmail();
+        password = getPassword();
+        id = generateId();
 
         Helper.delayTime();
-        System.out.printf("\n\nWelcome %s!", adminName);
+        System.out.printf("\n\nWelcome %s!", name);
         Helper.delayTime();
-        System.out.printf("\n\nPlease use your email address [%s] as your username when logging in.", adminEmail);
+        System.out.printf("\n\nPlease use your email address [%s] as your username when logging in.", email);
         Helper.delayTime();
-        System.out.printf("\n\nLog in using your password [%s], make sure to write it down somewhere so you don't forget it!", Helper.hidePassword(adminPassword));
+        System.out.printf("\n\nLog in using your password [%s], make sure to write it down somewhere so you don't forget it!", Helper.hidePassword(password));
         Helper.delayTime();
-        System.out.printf("\n\nHere is your unique admin ID [%d].", adminID);
+        System.out.printf("\n\nHere is your unique admin ID [%d].\n\n", id);
     }
 
     private void setupOldAdmin() {}
 
-    private String getAdminName() {
+    public String getName() {
         String adminName;
 
         do {
@@ -67,13 +67,13 @@ public class Admin {
         return adminName;
     }
 
-    private int getAdminId() {
+    public int generateId() {
         Random rand = new Random();
 
         return 10000000 + rand.nextInt(90000000);
     }
 
-    private String getAdminEmail() {
+    public String getEmail() {
         String adminEmail;
 
         do {
@@ -86,7 +86,7 @@ public class Admin {
         return adminEmail;
     }
 
-    private String getAdminPassword() {
+    public String getPassword() {
         String adminPassword;
 
         do {
@@ -99,7 +99,7 @@ public class Admin {
         return adminPassword;
     }
 
-    public int getAdminID() {
-        return adminID;
+    public int getID() {
+        return id;
     }
 }

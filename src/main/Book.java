@@ -30,4 +30,9 @@ public class Book {
     public int getQuantity() {return quantity;}
 
     public int getTotalQuantity() {return totalQuantity;}
+
+    public void increaseQuantity() {
+        quantity++;
+        totalQuantity++;
+    }
 }

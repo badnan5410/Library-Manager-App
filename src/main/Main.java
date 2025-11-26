@@ -1,6 +1,9 @@
 package main;
 
 import helper.Helper;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,6 +20,31 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Admin admin = new Admin(scanner);
+
+        Library lib = new Library(admin.getID());
+
+        // genre list setup
+        List<String> g1 = new ArrayList<>();
+        g1.add("Fantasy");
+        g1.add("Adventure");
+
+        List<String> g2 = new ArrayList<>();
+        g2.add("Sci-Fi");
+
+        List<String> g3 = new ArrayList<>();
+        g3.add("Horror");
+        g3.add("Thriller");
+
+        // library setup
+        lib.addBook("Harry Potter", "J.K. Rowling", g1);
+        lib.addBook("Dune", "Frank Herbert", g2);
+        lib.addBook("It", "Stephen King", g3);
+
+        lib.addBook("Harry Potter", "J.K. Rowling", g1);
+        lib.addBook("Harry Potter", "J.K. Rowling", g1);
+
+        // test
+        lib.listAllBooks();
 
         scanner.close();
     }
